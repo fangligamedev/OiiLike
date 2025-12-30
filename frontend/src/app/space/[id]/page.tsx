@@ -191,14 +191,14 @@ export default function SpacePage() {
             <Navbar />
 
             {/* Main Content */}
-            <div className="flex-1 flex flex-col ml-[60px]">
+            <div className="flex-1 flex flex-col mr-[60px]">
                 {/* Header */}
                 <Header title={spaceTitle} points={635} onTitleChange={setSpaceTitle} />
 
                 {/* Workspace */}
                 <div className="flex-1 overflow-hidden flex">
                     {/* Chat Panel - Fixed width */}
-                    <div className="w-[400px] min-w-[350px] max-w-[500px] flex-shrink-0 border-r border-[var(--border-subtle)]">
+                    <div className="w-[480px] min-w-[400px] max-w-[600px] flex-shrink-0 border-r border-[var(--border-subtle)]">
                         <ChatPanel
                             messages={messages}
                             onSendMessage={handleSendMessage}

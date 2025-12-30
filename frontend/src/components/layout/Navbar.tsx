@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 export function Navbar() {
     return (
-        <nav className="fixed left-0 top-0 h-full w-[60px] flex flex-col items-center py-4 bg-[var(--bg-secondary)] border-r border-[var(--border-subtle)] z-50">
+        <nav className="fixed right-0 top-0 h-full w-[60px] flex flex-col items-center py-4 bg-[var(--bg-secondary)] border-l border-[var(--border-subtle)] z-50">
             {/* Logo */}
             <div className="mb-8">
                 <Link href="/" className="flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-br from-[var(--color-producer)] to-[var(--color-voidshaper)] text-white font-bold text-lg">

@@ -40,9 +40,9 @@ export function MessageInput({ onSend, disabled, placeholder = '输入您的需�
             <div className="flex items-end gap-2 p-2 rounded-2xl bg-[var(--bg-panel)] border border-[var(--border-subtle)]">
                 {/* Quick Actions */}
                 <div className="flex items-center gap-1 pb-1">
-                    <QuickButton icon={<Plus size={18} />} label="添加" />
-                    <QuickButton icon={<Palette size={18} />} label="风格" badge="143" />
-                    <QuickButton icon={<Users size={18} />} label="角色" />
+                    <QuickButton icon={<Plus size={22} />} label="添加" />
+                    <QuickButton icon={<Palette size={22} />} label="风格" badge="143" />
+                    <QuickButton icon={<Users size={22} />} label="角色" />
                 </div>
 
                 {/* Text Input */}
@@ -54,7 +54,7 @@ export function MessageInput({ onSend, disabled, placeholder = '输入您的需�
                     placeholder={placeholder}
                     disabled={disabled}
                     rows={1}
-                    className="flex-1 bg-transparent text-white text-sm resize-none outline-none placeholder:text-[var(--text-muted)] min-h-[36px] max-h-[150px] py-2"
+                    className="flex-1 bg-transparent text-white text-lg resize-none outline-none placeholder:text-[var(--text-muted)] min-h-[44px] max-h-[150px] py-2 leading-relaxed"
                 />
 
                 {/* Send Button */}
@@ -69,12 +69,12 @@ export function MessageInput({ onSend, disabled, placeholder = '输入您的需�
                         }
           `}
                 >
-                    <Send size={18} />
+                    <Send size={22} />
                 </button>
             </div>
 
             {/* Hint Text */}
-            <p className="mt-2 text-center text-xs text-[var(--text-muted)]">
+            <p className="mt-2 text-center text-sm text-[var(--text-muted)]">
                 按 Enter 发送，Shift + Enter 换行
             </p>
         </div>

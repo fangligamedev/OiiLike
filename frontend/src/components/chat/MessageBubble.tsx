@@ -42,14 +42,14 @@ export function MessageBubble({ message }: MessageBubbleProps) {
             )}
 
             {/* Content */}
-            <div className={`flex-1 max-w-[80%] ${isUser ? 'items-end' : 'items-start'} flex flex-col gap-2`}>
+            <div className={`flex-1 max-w-[85%] ${isUser ? 'items-end' : 'items-start'} flex flex-col gap-2`}>
                 {/* Agent Name */}
                 {!isUser && agentConfig && (
                     <div className="flex items-center gap-2">
-                        <span style={{ color: agentConfig.color }} className="text-sm font-medium">
+                        <span style={{ color: agentConfig.color }} className="text-base font-medium">
                             {agentConfig.chineseName}
                         </span>
-                        <span className="text-xs text-[var(--text-muted)]">
+                        <span className="text-sm text-[var(--text-muted)]">
                             {agentConfig.name}
                         </span>
                     </div>
@@ -58,17 +58,17 @@ export function MessageBubble({ message }: MessageBubbleProps) {
                 {/* Message Content */}
                 <div
                     className={`
-            px-4 py-3 rounded-2xl
+            px-5 py-4 rounded-2xl shadow-sm
             ${isUser
                             ? 'bg-[var(--color-producer)] text-white rounded-tr-md'
                             : 'bg-[var(--bg-panel)] text-[var(--text-primary)] rounded-tl-md border border-[var(--border-subtle)]'
                         }
           `}
                 >
-                    <p className="text-sm leading-relaxed whitespace-pre-wrap">
+                    <p className="text-lg leading-8 whitespace-pre-wrap break-words">
                         {message.content}
                         {message.isStreaming && (
-                            <span className="inline-block w-2 h-4 ml-1 bg-current animate-pulse" />
+                            <span className="inline-block w-2.5 h-5 ml-1 bg-current animate-pulse" />
                         )}
                     </p>
                 </div>
@@ -86,16 +86,16 @@ export function MessageBubble({ message }: MessageBubbleProps) {
                 {message.thinkingProcess && (
                     <button
                         onClick={() => setShowThinking(!showThinking)}
-                        className="flex items-center gap-1 text-xs text-[var(--text-muted)] hover:text-[var(--text-secondary)] transition-colors"
+                        className="flex items-center gap-1 text-sm text-[var(--text-muted)] hover:text-[var(--text-secondary)] transition-colors"
                     >
-                        {showThinking ? <ChevronDown size={14} /> : <ChevronRight size={14} />}
+                        {showThinking ? <ChevronDown size={16} /> : <ChevronRight size={16} />}
                         展示思考过程
                     </button>
                 )}
 
                 {/* Thinking Process Content */}
                 {showThinking && message.thinkingProcess && (
-                    <div className="p-3 rounded-lg bg-[var(--bg-secondary)] border border-[var(--border-subtle)] text-xs text-[var(--text-secondary)] animate-fade-in">
+                    <div className="p-3 rounded-lg bg-[var(--bg-secondary)] border border-[var(--border-subtle)] text-sm text-[var(--text-secondary)] animate-fade-in">
                         <pre className="whitespace-pre-wrap font-mono">{message.thinkingProcess}</pre>
                     </div>
                 )}
@@ -113,11 +113,11 @@ function StatusCard({ item, agentColor }: StatusCardProps) {
     const getStatusIcon = () => {
         switch (item.status) {
             case 'completed':
-                return <Check size={14} className="text-[var(--status-success)]" />;
+                return <Check size={16} className="text-[var(--status-success)]" />;
             case 'running':
-                return <Loader2 size={14} className="text-[var(--status-pending)] animate-spin" />;
+                return <Loader2 size={16} className="text-[var(--status-pending)] animate-spin" />;
             case 'error':
-                return <AlertCircle size={14} className="text-[var(--status-error)]" />;
+                return <AlertCircle size={16} className="text-[var(--status-error)]" />;
             default:
                 return <div className="w-3.5 h-3.5 rounded-full border-2 border-[var(--text-muted)]" />;
         }
@@ -125,11 +125,11 @@ function StatusCard({ item, agentColor }: StatusCardProps) {
 
     return (
         <div
-            className="flex items-center gap-2 px-3 py-2 rounded-lg bg-[var(--bg-secondary)] border-l-2"
+            className="flex items-center gap-2 px-4 py-3 rounded-lg bg-[var(--bg-secondary)] border-l-4 shadow-sm"
             style={{ borderLeftColor: agentColor || 'var(--border-subtle)' }}
         >
-            {getStatusIcon()}
-            <span className="text-xs text-[var(--text-secondary)]">{item.text}</span>
+            <div className="flex-shrink-0">{getStatusIcon()}</div>
+            <span className="text-sm text-[var(--text-secondary)] break-words leading-relaxed">{item.text}</span>
         </div>
     );
 }

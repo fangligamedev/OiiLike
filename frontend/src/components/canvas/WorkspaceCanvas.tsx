@@ -118,7 +118,7 @@ export function WorkspaceCanvas({ nodes, onNodeClick }: WorkspaceCanvasProps) {
             </div>
 
             {/* Toolbar */}
-            <div className="absolute bottom-4 right-4 flex items-center gap-2 p-2 rounded-xl bg-[var(--bg-panel)] border border-[var(--border-subtle)]">
+            <div className="absolute bottom-4 right-[80px] flex items-center gap-2 p-2 rounded-xl bg-[var(--bg-panel)] border border-[var(--border-subtle)]">
                 <ToolButton
                     icon={<MousePointer2 size={18} />}
                     active={tool === 'select'}
